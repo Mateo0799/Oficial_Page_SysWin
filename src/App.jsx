@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import ServiceCard from "./components/ServiceCard";
+import WhatsAppChat from "./components/WhatsAppChat";
+
 
 export default function App() {
   return (
@@ -82,37 +85,34 @@ export default function App() {
       {/* ================= SERVICES ================= */}
 
 
-      <section id="services" className="py-24 px-10 bg-slate-950 relative z-10">
-        <h3 className="text-4xl font-bold text-center mb-16 text-cyan-400">
-          Nuestros Servicios
+      <section id="services" className="py-32 px-10 relative z-10">
+        <h3 className="text-4xl font-bold text-center mb-20 text-cyan-400">
+          Servicios Estratégicos
         </h3>
 
-        <div className="max-w-6xl mx-auto grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: "Desarrollo Web",
-              text: "Aplicaciones modernas con React y arquitecturas escalables."
-            },
-            {
-              title: "Automatización",
-              text: "Optimización de procesos empresariales y reducción de errores."
-            },
-            {
-              title: "Software a Medida",
-              text: "Sistemas personalizados adaptados a tu negocio."
-            }
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05, translateY: -10 }}
-              className="p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-cyan-400 transition duration-500 hover:shadow-xl hover:shadow-cyan-500/30 cursor-pointer"
-            >
-              <h4 className="text-xl font-semibold mb-4 text-cyan-400">
-                {item.title}
-              </h4>
-              <p className="text-gray-300">{item.text}</p>
-            </motion.div>
-          ))}
+        <div className="max-w-6xl mx-auto grid gap-10 md:grid-cols-3">
+
+          <ServiceCard title="Desarrollo de Software">
+            <p>
+              Creamos soluciones personalizadas basadas en la lógica de tu negocio,
+              diseñadas para escalar y evolucionar con el crecimiento de tu empresa.
+            </p>
+          </ServiceCard>
+
+          <ServiceCard title="Desarrollo de Aplicaciones Web">
+            <p>
+              Construimos aplicaciones modernas, seguras y optimizadas para alto
+              rendimiento, enfocadas en experiencia de usuario y conversión.
+            </p>
+          </ServiceCard>
+
+          <ServiceCard title="Desarrollo de Código Seguro">
+            <p>
+              Implementamos estándares avanzados de seguridad, protección de datos
+              y arquitectura robusta para empresas que exigen confiabilidad.
+            </p>
+          </ServiceCard>
+
         </div>
       </section>
 
@@ -178,7 +178,7 @@ export default function App() {
       <footer className="py-8 text-center border-t border-white/10 text-gray-500">
         © 2026 SysWin — Tecnología que impulsa el futuro.
       </footer>
-
+      <WhatsAppChat />
     </div>
   );
 }
